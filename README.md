@@ -29,5 +29,5 @@ scikit-learn==1.7.2
 tensorflow==2.20.0 
 ```
 
-## 📚&nbsp;License <a name="License"></a>
+## 📚License <a name="License"></a>
 Licensed under the Academic Free License version 3.0
