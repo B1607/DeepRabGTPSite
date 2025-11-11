@@ -7,7 +7,7 @@ Wei-En Jhang, Sin-Siang Wei, Yu-Han Weng, Yi-Ting Chung, Yu-Yen Ou
 The Rab subfamily of RAS superfamily GTPases are master regulators of intracellular vesicular transport, and their dysregulation is increasingly implicated in cancer progression. The precise identification of their GTP-binding sites is a critical first step for the rational design of novel cancer therapeutics. Interestingly, targeting Rab proteins offers a unique therapeutic duality: small-molecule activators of RAB7 can enhance lysosomal degradation of oncogenic receptors, while inhibitors of RAB27 can block the secretion of tumor-promoting extracellular vesicles. Both strategies hinge on accurately targeting their GTP-binding pockets. To address this, we introduce DeepRabGTPSite, an advanced computational framework that leverages the synergy of Protein Language Models (PLMs) and a Multi-window Convolutional Neural Network (MCNN). By learning deeply, DeepRabGTPSite is designed to accurately predict GTP-binding residues across the diverse Ras family. When evaluated on an independent test set, our model achieves superior performance (Sensitivity 0.9507, MCC 0.8219, and AUC 0.9946) compared to existing general-purpose predictors.  This work provides a powerful and specialized tool to accelerate the discovery of both activators and inhibitors targeting Ras proteins, opening new avenues for function-specific cancer therapies.
 <br>
 
-![workflow]([https://github.com/B1607/RTK_RAG/blob/3cd56468802ae8d70bcb21f62606895eb7357b0d/Figures/RTKs-Workflow.png](https://github.com/B1607/DeepRabGTPSite/blob/main/figure/workflow.png))
+![workflow](figure/workflow.png)
 
 ## 📃Dataset <a name="Dataset"></a>
 
