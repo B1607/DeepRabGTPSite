@@ -1,6 +1,6 @@
 # DeepRabGTPSite: A Multi-Window Protein Language Model Framework for Predicting GTP-Binding Sites in Rab GTPases as Dually-Actionable Cancer Drug Targets
 Wei-En Jhang, Sin-Siang Wei, Yu-Han Weng, Yi-Ting Chung, Yu-Yen Ou
-|[ 🎇&nbsp;Abstract](#abstract) |[📃&nbsp;Dataset](#Dataset) |[ 💾&nbsp;Requirements ](#colab)|[ 📚&nbsp;License](#License)|
+|[ 🎇&nbsp;Abstract](#abstract) |[📃&nbsp;Dataset](#Dataset) |[ 💾&nbsp;Requirements ](#requirement)|[ 📚&nbsp;License](#License)|
 |-------------------------------|-----------------------------|------------------------------------|-----------------------------|
 
 ## 🎇Abstract <a name="abstract"></a>
@@ -22,13 +22,11 @@ The Rab subfamily of RAS superfamily GTPases are master regulators of intracellu
 
 ## 💾&nbsp;Requirements <a name="requirement"></a>
 ```bash
-h5py==3.11.0
-tqdm==4.66.4
-numpy==1.26.4
-scikit-learn==1.4.2
-tensorflow==2.10.1
-transformers==4.40.1
-torch==2.3.0+cu118
+h5py==3.15.0
+tqdm==4.67.1
+numpy==2.3.3
+scikit-learn==1.7.2 
+tensorflow==2.20.0 
 ```
 
 ## 📚&nbsp;License <a name="License"></a>
