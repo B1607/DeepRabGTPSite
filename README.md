@@ -1,33 +1,38 @@
-# DeepRabGTPSite: A Multi-Window Protein Language Model Framework for Predicting GTP-Binding Sites in Rab GTPases as Dually-Actionable Cancer Drug Targets
+# DeepRabGTPSite: Protein Language Model Embeddings and Multi-Window Convolutional Networks for Predicting GTP-Binding Residues in Rab GTPases
+
 Wei-En Jhang, Sin-Siang Wei, Yu-Han Weng, Yi-Ting Chung, Yu-Yen Ou
-|[🎇&nbsp;Abstract](#abstract) |[📃&nbsp;Dataset](#Dataset) |[💾&nbsp;Requirements ](#requirement)|[ 📚&nbsp;License](#License)|
-|-------------------------------|-----------------------------|------------------------------------|-----------------------------|
 
-## 🎇Abstract <a name="abstract"></a>
-The Rab subfamily of RAS superfamily GTPases are master regulators of intracellular vesicular transport, and their dysregulation is increasingly implicated in cancer progression. The precise identification of their GTP-binding sites is a critical first step for the rational design of novel cancer therapeutics. Interestingly, targeting Rab proteins offers a unique therapeutic duality: small-molecule activators of RAB7 can enhance lysosomal degradation of oncogenic receptors, while inhibitors of RAB27 can block the secretion of tumor-promoting extracellular vesicles. Both strategies hinge on accurately targeting their GTP-binding pockets. To address this, we introduce DeepRabGTPSite, an advanced computational framework that leverages the synergy of Protein Language Models (PLMs) and a Multi-window Convolutional Neural Network (MCNN). By learning deeply, DeepRabGTPSite is designed to accurately predict GTP-binding residues across the diverse Ras family. When evaluated on an independent test set, our model achieves superior performance (Sensitivity 0.9507, MCC 0.8219, and AUC 0.9946) compared to existing general-purpose predictors.  This work provides a powerful and specialized tool to accelerate the discovery of both activators and inhibitors targeting Ras proteins, opening new avenues for function-specific cancer therapies.
-<br>
+## Overview
 
-![workflow](figure/workflow.png)
+DeepRabGTPSite is a sequence-based predictor of GTP-binding residues that combines frozen ProtT5 (`Rostlab/prot_t5_xl_half_uniref50-enc`) residue embeddings with a four-branch multi-window convolutional neural network (MCNN; kernel widths 4, 6, 8, and 10 over a 15-residue window). Trained on 104 non-redundant vesicle-trafficking GTPase sequences and evaluated on 27 sequences (40% CD-HIT identity cutoff), the selected model achieved a sensitivity of 0.9798, specificity of 0.9684, accuracy of 0.9689, MCC of 0.7378, AUROC of 0.9951, and AUPRC of 0.8583.
 
-## 📃Dataset <a name="Dataset"></a>
+DeepRabGTPSite provides candidate residue-level GTP-binding annotations from sequence alone to support structural mapping, mutagenesis prioritization, and functional studies across Rab and vesicle-trafficking GTPases. Predictions do not establish functional modulation direction, compound selectivity, or therapeutic efficacy.
 
-| Dataset            | Protein Sequence |    Similarity < 40%  | 
-|--------------------|------------------|--------------------------|
-| Vesicle_Trafficking_Related_Proteins   |   1086             |          131             |      
+## Dataset
 
-| Dataset            | Protein Sequence |    GTP Binding Residues  | Non-Binding Residues    |
-|--------------------|------------------|--------------------------|--------------------------|
-| Training Data    |   104             |          1,815             |44,815                      |
-| Independent Testing Data     |    27         |                    446    |     10,218                  |
+Sequences and UniProt `BINDING` ("GTP") annotations were collected from UniProtKB (1,086 vesicle-trafficking-related entries) and clustered with CD-HIT at 40% sequence identity, yielding 131 non-redundant sequences totaling 57,294 residues (mean 437.4 aa, median 260.0 aa, range 163–1,500 aa; encompassing both canonical \~200–250 aa Rab/Ras-family GTPases and larger multi-domain trafficking GTPases).
 
-## 💾Requirements <a name="requirement"></a>
+| Dataset | Protein Sequences | After CD-HIT (Identity < 40%) |
+| :--- | :---: | :---: |
+| Vesicle-Trafficking-Related Proteins | 1,086 | 131 |
+
+| Split | Protein Sequences | GTP-Binding Residues | Non-Binding Residues |
+| :--- | :---: | :---: | :---: |
+| Training Set | 104 | 1,815 | 44,815 |
+| Evaluation Set\* | 27 | 446 | 10,218 |
+
+*\*The evaluation set was also used for configuration comparison and decision-threshold selection.*
+
+## Requirements
+
 ```bash
 h5py==3.15.0
 tqdm==4.67.1
 numpy==2.3.3
-scikit-learn==1.7.2 
-tensorflow==2.20.0 
+scikit-learn==1.7.2
+tensorflow==2.20.0
 ```
 
-## 📚License <a name="License"></a>
-Licensed under the Academic Free License version 3.0
+## License
+
+Licensed under the Academic Free License version 3.0.
