@@ -11,6 +11,8 @@ DeepRabGTPSite is a sequence-based predictor of GTP-binding residues that combin
 
 DeepRabGTPSite provides candidate residue-level GTP-binding annotations from sequence alone to support structural mapping, mutagenesis prioritization, and functional studies across Rab and vesicle-trafficking GTPases. Predictions do not establish functional modulation direction, compound selectivity, or therapeutic efficacy. <br>
 
+![workflow](figure/workflow.png)
+
 ## 📃Dataset <a name="Dataset"></a>
 
 Sequences and UniProt `BINDING` ("GTP") annotations were collected from UniProtKB (1,086 vesicle-trafficking-related entries) and clustered with CD-HIT at 40% sequence identity, yielding 131 non-redundant sequences totaling 57,294 residues (mean 437.4 aa, median 260.0 aa, range 163–1,500 aa; encompassing both canonical \~200–250 aa Rab/Ras-family GTPases and larger multi-domain trafficking GTPases).
